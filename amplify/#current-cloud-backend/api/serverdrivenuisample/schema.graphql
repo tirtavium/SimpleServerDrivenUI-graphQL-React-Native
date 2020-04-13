@@ -1,0 +1,6 @@
+type Component @model {
+  color: String
+  data: String!
+  id: ID!
+  viewType: String!
+}

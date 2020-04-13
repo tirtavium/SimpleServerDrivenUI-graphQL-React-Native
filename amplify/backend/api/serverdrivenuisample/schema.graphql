@@ -1,0 +1,258 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Component {
+  color: String
+  data: String!
+  id: ID!
+  viewType: String!
+}
+
+type ModelComponentConnection {
+  items: [Component]
+  nextToken: String
+}
+
+type Mutation {
+  createComponent(condition: ModelComponentConditionInput, input: CreateComponentInput!): Component
+  createRootComponent(input: CreateRootComponentInput!): RootComponent
+  deleteComponent(condition: ModelComponentConditionInput, input: DeleteComponentInput!): Component
+  deleteRootComponent(input: DeleteRootComponentInput!): RootComponent
+  updateComponent(condition: ModelComponentConditionInput, input: UpdateComponentInput!): Component
+  updateRootComponent(input: UpdateRootComponentInput!): RootComponent
+}
+
+type Query {
+  getComponent(id: ID!): Component
+  getRootComponent(id: ID!): RootComponent
+  listComponents(filter: ModelComponentFilterInput, limit: Int, nextToken: String): ModelComponentConnection
+  listRootComponents(filter: TableRootComponentFilterInput, limit: Int, nextToken: String): RootComponentConnection
+}
+
+type RootComponent {
+  color: String
+  components: [Component]!
+  id: ID!
+  viewType: String!
+}
+
+type RootComponentConnection {
+  items: [RootComponent]
+  nextToken: String
+}
+
+type Subscription {
+  onCreateComponent: Component @aws_subscribe(mutations : ["createComponent"])
+  onCreateRootComponent(color: String, id: ID, viewType: String): RootComponent @aws_subscribe(mutations : ["createRootComponent"])
+  onDeleteComponent: Component @aws_subscribe(mutations : ["deleteComponent"])
+  onDeleteRootComponent(color: String, id: ID, viewType: String): RootComponent @aws_subscribe(mutations : ["deleteRootComponent"])
+  onUpdateComponent: Component @aws_subscribe(mutations : ["updateComponent"])
+  onUpdateRootComponent(color: String, id: ID, viewType: String): RootComponent @aws_subscribe(mutations : ["updateRootComponent"])
+}
+
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+input CreateComponentInput {
+  color: String
+  data: String!
+  id: ID
+  viewType: String!
+}
+
+input CreateRootComponentInput {
+  color: String
+  viewType: String!
+}
+
+input DeleteComponentInput {
+  id: ID
+}
+
+input DeleteRootComponentInput {
+  id: ID!
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelComponentConditionInput {
+  and: [ModelComponentConditionInput]
+  color: ModelStringInput
+  data: ModelStringInput
+  not: ModelComponentConditionInput
+  or: [ModelComponentConditionInput]
+  viewType: ModelStringInput
+}
+
+input ModelComponentFilterInput {
+  and: [ModelComponentFilterInput]
+  color: ModelStringInput
+  data: ModelStringInput
+  id: ModelIDInput
+  not: ModelComponentFilterInput
+  or: [ModelComponentFilterInput]
+  viewType: ModelStringInput
+}
+
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input TableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  between: [Float]
+  contains: Float
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+  notContains: Float
+}
+
+input TableIDFilterInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+}
+
+input TableIntFilterInput {
+  between: [Int]
+  contains: Int
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+  notContains: Int
+}
+
+input TableRootComponentFilterInput {
+  color: TableStringFilterInput
+  id: TableIDFilterInput
+  viewType: TableStringFilterInput
+}
+
+input TableStringFilterInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+}
+
+input UpdateComponentInput {
+  color: String
+  data: String
+  id: ID!
+  viewType: String
+}
+
+input UpdateRootComponentInput {
+  color: String
+  id: ID!
+  viewType: String
+}

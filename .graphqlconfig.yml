@@ -1,0 +1,18 @@
+projects:
+  serverdrivenuisample:
+    schemaPath: amplify/backend/api/serverdrivenuisample/build/schema.graphql
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: flow
+        generatedFileName: src/API.js
+        docsFilePath: src/graphql
+        region: ap-southeast-1
+        apiId: null
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3
