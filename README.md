@@ -2,6 +2,9 @@
 
 Simple Server Drive UI concept Using React Native RecycleView and AWS App Sync
 
+![Alt Text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/server_driven_ui_sample.gif)
+
+
 ## Getting Started
 
 These instructions will get you know the detail of implementation
@@ -25,17 +28,22 @@ Create Amplify project
 ```
 amplify init
 ```
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/amplify%20init%20pic.png)
 
 Add API Graphql
 ```
 amplify add api
 ```
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/add%20api%20pic.png)
 
 Create GraphQL Schema
 ```
 amplify mock api
+```
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/mock%20api.png)
 
-//Push To cloud
+Push To cloud
+```
 amplify push
 ```
 
