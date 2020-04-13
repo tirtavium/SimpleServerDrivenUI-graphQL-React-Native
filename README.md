@@ -28,19 +28,19 @@ Create Amplify project
 ```
 amplify init
 ```
-![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/amplify%20init%20pic.png)
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/amplify%20init%20pic.png =100x100)
 
 Add API Graphql
 ```
 amplify add api
 ```
-![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/add%20api%20pic.png)
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/add%20api%20pic.png =100x100)
 
 Create GraphQL Schema
 ```
 amplify mock api
 ```
-![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/mock%20api.png)
+![alt-text](https://github.com/tirtavium/SimpleServerDrivenUI-graphQL-React-Native/blob/master/mock%20api.png =100x100)
 
 Push To cloud
 ```
